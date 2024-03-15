@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             x:Class="MauiGridTest.MainPage">
+    <ScrollView>
+        <VerticalStackLayout BackgroundColor="Yellow"
+                             Spacing="10">
+            <Label
+                Text="Correct calculation of internal control size in Star Column."
+                FontSize="12"
+                HorizontalOptions="Start"/>
+            <Grid ColumnDefinitions="*,Auto" 
+                  BackgroundColor="Cyan"
+                  ColumnSpacing="5">
+                <Label
+                    Text="Star Column. Star Column. Star Column. Star Column. Star Column. Star Column. Star Column. Star Column."
+                    FontSize="18"
+                    MaxLines="7"
+                    HorizontalOptions="Start"
+                    BackgroundColor="LightSteelBlue"/>
+                <Label
+                    Grid.Column="1"
+                    Text="Auto Column. Auto Column."
+                    FontSize="18"
+                    HorizontalOptions="Center"
+                    BackgroundColor="DarkCyan"/>
+            </Grid>
+            <Grid ColumnDefinitions="Auto,Auto" 
+                  BackgroundColor="Cyan"
+                  ColumnSpacing="5">
+                <Label
+                    Text="Auto Column. Auto Column. Auto Column. Auto Column. Auto Column. Auto Column. Auto Column. Auto Column."
+                    FontSize="18"
+                    MaxLines="7"
+                    HorizontalOptions="Start"
+                    BackgroundColor="LightSteelBlue"/>
+                <Label
+                    Grid.Column="1"
+                    Text="Auto Column. Auto Column."
+                    FontSize="18"
+                    HorizontalOptions="Center"
+                    BackgroundColor="DarkCyan"/>
+            </Grid>
+            
+            <Label
+                Text="Incorrect calculation of internal control size in Wrapped Star Column."
+                FontSize="12"
+                HorizontalOptions="Start"/>
+            <Grid ColumnDefinitions="*,*" 
+                  BackgroundColor="Cyan"
+                  ColumnSpacing="5">
+                <Label
+                    Text="Star Column. Star Column. Star Column. Star Column. Star Column. Star Column. Star Column. Star Column."
+                    FontSize="18"
+                    MaxLines="7"
+                    HorizontalOptions="Start"
+                    BackgroundColor="LightSteelBlue"/>
+                <Border Grid.Column="1"
+                        Padding="10,5"
+                        BackgroundColor="Green"
+                        HeightRequest="50"
+                        VerticalOptions="Center">
+                    <Border.StrokeShape>
+                        <RoundRectangle
+                            CornerRadius="30"
+                            StrokeThickness="1" />
+                    </Border.StrokeShape>
+                    <Label
+                        Text="Wrapped Star Column."
+                        MaxLines="5"
+                        FontSize="18"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center"/>
+                </Border>
+            </Grid>
+            
+            <Label
+                Text="Incorrect calculation of internal control size in Wrapped Star Column."
+                FontSize="12"
+                HorizontalOptions="Start"/>
+            <Grid ColumnDefinitions="*,*" 
+                  BackgroundColor="Cyan"
+                  ColumnSpacing="5">
+                <HorizontalStackLayout Spacing="5"
+                                       BackgroundColor="Blue">
+                    <Label
+                        Text="Wrapped Star Column. Wrapped Star Column. Wrapped Star Column. Wrapped Star Column."
+                        FontSize="18"
+                        MaxLines="7"
+                        HorizontalOptions="Start"
+                        BackgroundColor="LightSteelBlue"/>
+                    <BoxView Color="Red" 
+                             WidthRequest="20"
+                             HeightRequest="20"/>
+                </HorizontalStackLayout>
+                <Label
+                    Grid.Column="1"
+                    Text="Star Column. Star Column. Star Column. Star Column. Star Column."
+                    FontSize="18"
+                    HorizontalOptions="Center"
+                    BackgroundColor="Orange"/>
+            </Grid>
+            
+            <Label
+                Text="Incorrect calculation of internal control size in Wrapped Star Column."
+                FontSize="12"
+                HorizontalOptions="Start"/>
+            <toolkit:Expander
+                x:Name="ExpanderTest"
+                Direction="Up">
+                <toolkit:Expander.Header>
+                    <Grid ColumnSpacing="4"
+                          HorizontalOptions="Start"
+                          ColumnDefinitions="*,Auto">
+                        <Grid Grid.Column="0"
+                              ColumnSpacing="4"
+                              BackgroundColor="Red"
+                              ColumnDefinitions="Auto,24">
+                            <Label
+                                Text="Wrapped Star Column. Wrapped Star Column. Wrapped Star Column. Wrapped Star Column."
+                                FontSize="18"
+                                MaxLines="7"
+                                HorizontalOptions="Start"
+                                BackgroundColor="LightSteelBlue"/>
+                        </Grid>
+                        <Button
+                            Grid.Column="1"
+                            Text="Auto Button."
+                            FontSize="18"
+                            HorizontalOptions="End"
+                            HeightRequest="40"
+                            TextColor="White"
+                            BackgroundColor="DarkCyan"/>
+                    </Grid>
+                </toolkit:Expander.Header>
+            </toolkit:Expander>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
